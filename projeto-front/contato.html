@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTATO</title>
+    <link rel = "stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Minha Página</h1>
+  </header>
+  <nav>
+    <a href = "home.html">Home |</a>
+    <a href = "contato.html">Contato |</a>
+    <a href = "area_admin.html">Área Admin</a>
+  </nav>
+  <div id="area">
+      <h2>Contato</h2>
+      <form id="formulario" autocomplete="off">
+        <fieldset>
+          <label>Nome:</label><br><input class="campo_nome" type="text" id="nome"/><br/><br/>
+          <label>Email:</label><br><input class="campo_email" type="text" id="email"/><br/><br/>
+          <label>Mensagem:</label><br><textarea class="msg" cols="35" rows="8" id = "mensagem"></textarea><br/><br/>
+          <input type="submit" value="Enviar" id = "enviar">
+        </fieldset>
+      </form>
+    </div>
+    
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/contato.js"></script>
+</body>
+</html>
