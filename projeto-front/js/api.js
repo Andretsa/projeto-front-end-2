@@ -60,3 +60,9 @@ function validarUsuario(objLoginSenha) {
 
     return retorno;
 }
+
+function validarEmail(email) {
+    // Utilizando uma expressão regular simples para verificar o formato do e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}

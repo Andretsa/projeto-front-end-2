@@ -1,60 +1,39 @@
+//O código será executado assim que o DOM (Document Object Model) estiver totalmente carregado. 
+//Isso é importante para garantir que todos os elementos HTML estejam prontos para serem manipulados.
+
 $(document).ready(function () {
 
-    // Event listener para o formulário de contato
-    $('#formulario').submit(function (event) {
-        event.preventDefault();
-
-        // Obter os valores dos campos
+    // Event listener para capturaer o envio do formulário de contato:
+    //Quando o formulário com o ID "form-contato" é enviado, a função event será executada.
+    $('#form-contato').submit(function (event) {
+        //Isso impede o comportamento padrão do envio do formulário (recarregar a página)
+        event.preventDefault(); 
+        // Obtém os valores dos inputs da página
         var nome = $('#nome').val();
         var email = $('#email').val();
         var mensagem = $('#mensagem').val();
-
-        // Criar um objeto com os dados do formulário
+        
+        // Verificar se o e-mail é válido
+        if (!validarEmail(email)) {
+            alert("Por favor, insira um e-mail válido.");
+            return;
+        }
+        // Cria-se um objeto com os dados do formulário
         var novaMensagem = {
             nome: nome,
             email: email,
             mensagem: mensagem
         };
 
-        // Enviar a nova mensagem para a API
+        // Envia a nova mensagem para a API
         inserirMensagem(novaMensagem);
 
-        // Limpar os campos do formulário
+        // Limpa os campos do formulário após o envio bem-sucedido
         $('#nome').val('');
         $('#email').val('');
         $('#mensagem').val('');
 
-        // Atualizar a tabela com as mensagens
-        atualizarTabelaMensagens();
+        //Redireciona o usuário para a página "area_admin.html" após o envio do formulário.
+        window.location.href = "area_admin.html";
     });
-
-    // Função para obter mensagens da API e gerar a tabela
-    function atualizarTabelaMensagens() {
-        // Obter as mensagens da API
-        var mensagens = obterMensagens();
-
-        // Limpar a tabela existente
-        $('#tabela-mensagens').remove();
-
-        // Criar uma nova tabela
-        var tabela = $('<table id="tabela-mensagens"></table>').addClass('tabela-contato');
-
-        // Adicionar cabeçalho da tabela
-        tabela.append('<tr><th>Nome</th><th>Email</th><th>Mensagem</th></tr>');
-
-        // Adicionar linhas com os dados das mensagens
-        mensagens.forEach(function (mensagem) {
-            var linha = $('<tr></tr>');
-            linha.append('<td>' + mensagem.nome + '</td>');
-            linha.append('<td>' + mensagem.email + '</td>');
-            linha.append('<td>' + mensagem.mensagem + '</td>');
-            tabela.append(linha);
-        });
-
-        // Adicionar a tabela à área de contato
-        $('#area').append(tabela);
-    }
-
-    // Inicializar a tabela de mensagens ao carregar a página
-    atualizarTabelaMensagens();
-});
+})

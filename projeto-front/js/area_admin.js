@@ -1,23 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Adiciona um evento ao formulário
-    document.querySelector('form').addEventListener('submit', function (event) {
-        // Impede a submissão padrão do formulário
+    document.querySelector('#login').addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Obtém os valores do formulário
-        var objLoginSenha = {
-            username: document.getElementById('username').value,
-            password: document.getElementById('password').value
+        let objLoginSenha = {
+            email : document.getElementById('username').value,
+            senha : document.getElementById('password').value
         };
-
-        // Chama a função validarUsuario com as credenciais de login
+        
         var isValid = validarUsuario(objLoginSenha);
 
-        // Verifica se a validação foi bem-sucedida
         if (isValid) {
             alert("Login bem-sucedido!");
+            window.location.href = "msg_recebidas.html";
         } else {
             alert("Credenciais de login inválidas. Por favor, tente novamente.");
+            if (objLoginSenha.email === "") {
+                alert("Por favor, digite o email.");
+            } else if (!validarEmail(objLoginSenha.email)) {
+                alert("Por favor, digite um email válido.");
+            
+            }else if(objLoginSenha.senha.length >= 4){
+                alert("Por favor, digite apenas 4 caracteres")
+            }
+             else {
+                alert("Por favor, digite a senha corretamente.");
+            }
         }
+        document.getElementById('login').reset();
     });
 });
+
+

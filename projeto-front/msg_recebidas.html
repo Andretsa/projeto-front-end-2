@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MENSAGENS RECEBIDAS</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+    </head>
+    <body>
+        <header>
+            <h1>Minha Página</h1>
+        </header>
+        <nav>
+            <a href = "home.html">Home |</a> 
+            <a href = "contato.html">Contato |</a> 
+            <a href = "area_admin.html">Área Admin</a>
+        </nav>
+        <div id="container">
+            <h2>Mensagens recebidas</h2>
+        </div>
+        <div id="area">
+            <div class="table-container">
+                <table id="tabela-mensagens" class="tabela-contato">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Mensagem</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/api.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="js/mensagens.js"></script>
+    
+</html>

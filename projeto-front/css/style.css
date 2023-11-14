@@ -28,6 +28,10 @@ h2 {
     text-align: center;
 }
 
+fieldset {
+    border-style:inherit;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -48,3 +52,56 @@ h2 {
     flex: 2;
     text-align:left;
 }
+
+
+.table-container {
+    margin: 0 auto;
+    width: 100%; 
+}
+
+.tabela-contato {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabela-contato th, .tabela-contato td {
+    border: 10px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.tabela-contato th {
+    background-color: #f2f2f2;
+}
+
+.table-container {
+    margin: 0 auto;
+    width: 80%; /* ajuste conforme necessário */
+}
+
+.tabela-contato {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabela-contato th, .tabela-contato td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabela-contato th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd; /* Adiciona uma linha extra abaixo dos títulos */
+}
+
+.tabela-contato td {
+    border-bottom: 1px solid #ddd; /* Linha entre as linhas de dados */
+}
+
+.tabela-contato tbody tr:last-child td {
+    border-bottom: none; /* Remove a linha extra após a última linha de dados */
+}
+
