@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Admin</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/jquery-3.6.4.min.js"></script>
+        <script src="js/api.js"></script>
+        <script src="js/biblioteca.js"></script>
+        <script src="js/area_admin.js"></script>
+        
+    </head>
+
+    <body>
+        <header>
+            <h1>Meu Projeto</h1>
+        </header>
+        <nav>
+            <a href="home.html">Home |</a>
+            <a href="contato.html">Contato |</a>
+            <a href="area_admin.html">Área Admin </a>
+        </nav>
+        <div id="admin-area">
+            <h2>Área Administrativa</h2>
+            <form id="login" autocomplete="off">
+                <fieldset>
+                    <label for="username">Login:</label><br/>
+                    <input type="text" id="username" name="username" required placeholder="Digite seu e-mail"><br/><br/>
+                    <label for="password">Senha:</label><br/>
+                    <input type="password" id="password" name="password" required><br/><br/>
+                    <input type="submit" value="Entrar" id = "logar">
+                </fieldset>
+            </form>
+        </div>
+
+    </body>
+
+</html>
