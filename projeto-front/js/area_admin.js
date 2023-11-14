@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    configurarCampo("username");
+
     document.querySelector('#login').addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -7,27 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
             senha : document.getElementById('password').value
         };
         
-        var isValid = validarUsuario(objLoginSenha);
+        let isValid = validarUsuario(objLoginSenha);
 
         if (isValid) {
             alert("Login bem-sucedido!");
             window.location.href = "msg_recebidas.html";
         } else {
-            alert("Credenciais de login inválidas. Por favor, tente novamente.");
+            let erroMensagem = "Credenciais de login inválidas. Por favor, corrija os seguintes problemas:\n";
+        
             if (objLoginSenha.email === "") {
-                alert("Por favor, digite o email.");
+                erroMensagem += "- Digite um email.\n";
             } else if (!validarEmail(objLoginSenha.email)) {
-                alert("Por favor, digite um email válido.");
-            
-            }else if(objLoginSenha.senha.length >= 4){
-                alert("Por favor, digite apenas 4 caracteres")
+                erroMensagem += "- Digite um email válido.\n";
+            }else if(objLoginSenha.senha.length !== 4) {
+                erroMensagem += "- A senha deve ter pelo menos 4 números.\n";
+            }else{
+                erroMensagem = "Por favor, verifique novamente seu email e senha."
             }
-             else {
-                alert("Por favor, digite a senha corretamente.");
-            }
+            alert(erroMensagem);
         }
+        
         document.getElementById('login').reset();
     });
-});
-
-
+})
